@@ -5,7 +5,7 @@ const collectEmployees = function() {
   while (adding) {
     let firstName = prompt("PLease enter the employee First Name");
     // Validate input for first name
-    while (!firstName.trim()) { // This method ensures that the user inputs valid information for the last name and ensures it is not empty.      firstName = prompt("Please enter a valid First Name (not empty)");
+    while (!firstName.trim()) { // This method ensures that the user inputs valid information for the last name and ensures it is not empty. 
     }
     
     let lastName = prompt("Please enter the employee last name.");
