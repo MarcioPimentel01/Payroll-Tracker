@@ -24,6 +24,7 @@ const collectEmployees = function() {
           };
           employees.push(employee); // Pushing the employee object to the employees array
       }
+      adding = confirm("do you want to continue adding employees?")
   }
 
   return employees; // Returning the array of collected employees
@@ -43,7 +44,9 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  let randomEmployee = firstName.lastName
+  const randomEmployeeIndex = Math.floor(Math.random() * employeesArray.length);
+  const randomEmployee = employeesArray[randomEmployeeIndex];
+  console.log(`Random Employee: ${randomEmployee.firstName} ${randomEmployee.lastName}`);
 }
 
 /*
