@@ -19,6 +19,13 @@ const collectEmployees = function() {
   }
 }
 
+// conditiona to check if the salary is a valid number, and zero be default in case there is no imnput.
+if (isNaN(Number(salary))) { 
+
+} else {
+  salary = Number(salary); // to convert the salary into a number.
+}
+
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
