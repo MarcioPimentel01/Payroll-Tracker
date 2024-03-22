@@ -1,34 +1,40 @@
-// Get a reference to the #add-employees-btn element
-const addEmployeesBtn = document.querySelector('#add-employees-btn');
-
-
-
-// Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   const employees = [];  //creation of an array to store employee names
   let adding = true; //this variable has the intent to control the loop
   while (adding) {
-      let firstName = prompt("Please enter employee's First Name");
-      let lastName = prompt("Please enter employee's last name.");
-      let salary = parseFloat (prompt("Please, input the salary amount.")); //here I'm using parseFloat function that transforms the string argument into a number
+    let firstName = prompt("PLease enter the employee First Name");
+    // Validate input for first name
+    while (!firstName.trim()) { // This method ensures that the user inputs valid information for the last name and ensures it is not empty.      firstName = prompt("Please enter a valid First Name (not empty)");
+    }
+    
+    let lastName = prompt("Please enter the employee last name.");
+    // Validate input for last name
+    while (!lastName.trim()) { // this methode is assure that the user will input valid information, and thet is not empty
+      lastName = prompt("Please enter a valid Last Name (not empty)");
+    }
+    
+    let salaryInput = prompt("Please, input the Employee salary amount.");
+    let salary = parseFloat(salaryInput);
+    // Validate input for salary
+    while (isNaN(salary) || salary < 0) {
+      salaryInput = prompt("Invalid salary amount. Please enter a valid positive number.");
+      salary = parseFloat(salaryInput);
+    }
       
-      // Conditional to check if the salary is a valid number, and zero by default in case there is no input.
-      if (isNaN(Number(salary)) || salary < 0) { 
-          alert("Invalid salary amount. Please enter a valid positive number.");
-      } else {
-          const employee = { // Creating an object to represent an employee
-              firstName: firstName, // Using the lastName variable
-              lastName: lastName, // Using the lastName variable
-              salary: salary // Using the lastName variable
-          };
-          employees.push(employee); // Pushing the employee object to the employees array
-      }
-      adding = confirm("do you want to continue adding employees?")
+    const employee = { // Creating an object to represent an employee
+      firstName: firstName, // Using the lastName variable
+      lastName: lastName, // Using the lastName variable
+      salary: salary // Using the lastName variable
+    };
+    employees.push(employee); // Pushing the employee object to the employees array
+    
+    adding = confirm("do you want to continue adding employees?");
   }
 
   return employees; // Returning the array of collected employees
 }
+
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
