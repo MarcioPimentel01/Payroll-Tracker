@@ -12,18 +12,14 @@ const collectEmployees = function() {
     let firstName = prompt("PLease enter employee's First Name");
     let lastName = prompt("Please enter employee's last name.");
     let salary = parseFloat (prompt("Please, input the salary amount.")); //here I'm using parsiFloat function that trnasforms the string argument into a number
-
-    employee.push({firstName: firstName, lastName: lastName, salary: salary}) //use of push to insert data into the array 'employee'.
-
-    adding = confirm("Do you want to add another employee?"); //using the variable a"dding = true" to pop up a window with "confirm" with ok and cancel
   }
-}
 
 // conditiona to check if the salary is a valid number, and zero be default in case there is no imnput.
-if (isNaN(Number(salary))) { 
-
+if (isNaN(Number(salary) || salary < 0)) { 
+  alert("Invalid salary amount. Please enter a valid positive number.")
 } else {
-  salary = Number(salary); // to convert the salary into a number.
+  employee.push({firstName: firstName, lastName: lastName, salary: salary}) //use of push to insert data into the array 'employee'.
+} adding = confirm("Do you want to add another employee?"); //using the variable a"dding = true" to pop up a window with "confirm" with ok and cancel
 }
 
 // Display the average salary
